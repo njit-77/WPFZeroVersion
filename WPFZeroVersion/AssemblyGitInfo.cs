@@ -1,5 +1,5 @@
 /// Auto generate file version 
 using System.Reflection;  
-[assembly: AssemblyVersion("1.0.2023.2")]  
-[assembly: AssemblyFileVersion("1.0.2023.2")]  
-[assembly: AssemblyTitle("551de9c   2023.06.24 / 14:54:48.79")]  
+[assembly: AssemblyVersion("1.0.2023.3")]  
+[assembly: AssemblyFileVersion("1.0.2023.3")]  
+[assembly: AssemblyTitle("4f0efff   2023.07.02 / 13:43:37.89")]  

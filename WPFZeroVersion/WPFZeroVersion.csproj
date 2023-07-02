@@ -15,11 +15,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dll\**" />
+    <EmbeddedResource Remove="Dll\**" />
+    <None Remove="Dll\**" />
+    <Page Remove="Dll\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NewLife.Core" Version="10.3.2023.601" />
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="@echo on&#xD;&#xA;&#xD;&#xA;set revfile=$(ProjectDir)\AssemblyGitInfo.cs&#xD;&#xA;&#xD;&#xA;for /f &quot;delims=+ &quot; %25%25a in ('git rev-list HEAD --count') do @set revnum=%25%25a&#xD;&#xA;for /f &quot;delims=+ &quot; %25%25a in ('git rev-parse --short HEAD') do @set revset=%25%25a&#xD;&#xA;for /f &quot;delims=+ &quot; %25%25a in ('git rev-parse HEAD') do @set HEAD=%25%25a&#xD;&#xA;&#xD;&#xA;echo &quot;%25HEAD%25&quot;&#xD;&#xA;echo &quot;%25revnum%25.%25revset%25&quot;.&quot;%25date:~0,4%25.%25date:~5,2%25.%25date:~8,2%25 / %25time%25&quot;&#xD;&#xA;&#xD;&#xA;echo /// Auto generate file version &gt; %25revfile%25&#xD;&#xA;echo using System.Reflection;  &gt;&gt; %25revfile%25&#xD;&#xA;echo [assembly: AssemblyVersion(&quot;1.0.%25date:~0,4%25.%25revnum%25&quot;)]  &gt;&gt; %25revfile%25&#xD;&#xA;echo [assembly: AssemblyFileVersion(&quot;1.0.%25date:~0,4%25.%25revnum%25&quot;)]  &gt;&gt; %25revfile%25&#xD;&#xA;echo [assembly: AssemblyTitle(&quot;%25revset%25   %25date:~0,4%25.%25date:~5,2%25.%25date:~8,2%25 / %25time%25&quot;)]  &gt;&gt; %25revfile%25" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="for /r $(ProjectDir)Dll %25%25i in (*.dll)  do (xcopy /Y %25%25i  $(TargetDir))" />
   </Target>
 
 </Project>
