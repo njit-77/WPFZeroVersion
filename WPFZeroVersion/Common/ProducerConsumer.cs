@@ -40,7 +40,7 @@ namespace WPFZeroVersion.Common
             while (true)
             {
                 bool is_get_data = false;
-                T? item = default;
+                T item = default;
 
                 if (queue.Count > 0)
                 {

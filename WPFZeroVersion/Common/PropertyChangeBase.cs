@@ -11,7 +11,7 @@ namespace WPFZeroVersion.Common
     public class PropertyChangeBase : INotifyPropertyChanged
     {
         [field: NonSerialized()]
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyname)
         {

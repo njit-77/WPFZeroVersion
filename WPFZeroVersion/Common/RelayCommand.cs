@@ -32,7 +32,7 @@ namespace WPFZeroVersion.Common
 
         #region ICommand的成员
 
-        public event EventHandler? CanExecuteChanged
+        public event EventHandler CanExecuteChanged
         {
             add
             {
@@ -47,7 +47,7 @@ namespace WPFZeroVersion.Common
         }
 
         [DebuggerStepThrough]
-        public bool CanExecute(object? parameter)
+        public bool CanExecute(object parameter)
         {
             if (_canExecute == null)
             {
@@ -56,7 +56,7 @@ namespace WPFZeroVersion.Common
             return _canExecute((T)parameter);
         }
 
-        public void Execute(object? parameter)
+        public void Execute(object parameter)
         {
             _execute?.Invoke((T)parameter);
         }
@@ -93,7 +93,7 @@ namespace WPFZeroVersion.Common
 
         #region ICommand的成员
 
-        public event EventHandler? CanExecuteChanged
+        public event EventHandler CanExecuteChanged
         {
             add
             {
@@ -108,7 +108,7 @@ namespace WPFZeroVersion.Common
         }
 
         [DebuggerStepThrough]
-        public bool CanExecute(object? parameter)
+        public bool CanExecute(object parameter)
         {
             if (_canExecute == null)
             {
@@ -117,7 +117,7 @@ namespace WPFZeroVersion.Common
             return _canExecute();
         }
 
-        public void Execute(object? parameter)
+        public void Execute(object parameter)
         {
             _execute?.Invoke();
         }
