@@ -7,11 +7,11 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-//[assembly: AssemblyTitle("WPFZeroVersion")]
+//[assembly: AssemblyTitle("WPF.Zero")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WPFZeroVersion")]
+[assembly: AssemblyProduct("WPF.Zero")]
 [assembly: AssemblyCopyright("@ njit-77 All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

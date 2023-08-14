@@ -1,7 +1,7 @@
 ﻿
-namespace WPFZeroVersion.DB
+namespace WPF.Zero.DB
 {
-    public interface ISqlite
+    public interface IMysql
     {
         string GetTableString();
 

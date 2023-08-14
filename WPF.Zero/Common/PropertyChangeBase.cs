@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace WPFZeroVersion.Common
+namespace WPF.Zero.Common
 {
     [Serializable]
     public class PropertyChangeBase : INotifyPropertyChanged

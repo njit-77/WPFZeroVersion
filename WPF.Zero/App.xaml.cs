@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using NewLife.Log;
 
-namespace WPFZeroVersion
+namespace WPF.Zero
 {
     /// <summary>
     /// Interaction logic for App.xaml

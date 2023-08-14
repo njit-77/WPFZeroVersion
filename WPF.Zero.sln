@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFZeroVersion", "WPFZeroVersion\WPFZeroVersion.csproj", "{AB9FFF46-6771-48C0-810A-8362CBD56C40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Zero", "WPF.Zero\WPF.Zero.csproj", "{AB9FFF46-6771-48C0-810A-8362CBD56C40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

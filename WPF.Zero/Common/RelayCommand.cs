@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace WPFZeroVersion.Common
+namespace WPF.Zero.Common
 {
     public class RelayCommand<T> : ICommand
     {

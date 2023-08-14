@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Collections.Concurrent;
 
-namespace WPFZeroVersion.Common
+namespace WPF.Zero.Common
 {
     /// <summary>简单生产者-消费者模式</summary>
     public class ProducerConsumer<T> where T : new()
