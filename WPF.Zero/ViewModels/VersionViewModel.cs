@@ -36,7 +36,7 @@ namespace WPF.Zero.ViewModels
             }
         }
 
-        public void Close()
+        public void CloseCommand()
         {
             TryCloseAsync(true);
         }

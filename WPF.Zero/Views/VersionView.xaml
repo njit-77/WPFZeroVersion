@@ -26,7 +26,7 @@
             <Image Source="/Resources/ico/software.ico"/>
             <TextBlock Text="WPF.Zero" FontFamily="Cascadia Code" FontSize="21"/>
         </DockPanel>
-        <TextBlock Grid.Row="1" FontFamily="Cascadia Code" x:Name="VersionText"/>
+        <TextBlock Grid.Row="1" Margin="10,5" FontFamily="Cascadia Code" x:Name="VersionText"/>
         <Button Grid.Row="2"
                 Content="关闭"
                 Margin="10,5"
@@ -34,6 +34,6 @@
                 Height="25"
                 HorizontalContentAlignment="Center"
                 HorizontalAlignment="Right"
-                x:Name="Close"/>
+                x:Name="CloseCommand"/>
     </Grid>
 </Window>
