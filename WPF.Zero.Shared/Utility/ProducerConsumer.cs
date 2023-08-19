@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Collections.Concurrent;
 
-namespace WPF.Zero.Common
+namespace WPF.Zero.Shared.Utility
 {
     /// <summary>简单生产者-消费者模式</summary>
-    public class ProducerConsumer<T> where T : new()
+    internal class ProducerConsumer<T> where T : new()
     {
         /// <summary>队列</summary>
         private ConcurrentQueue<T> queue;

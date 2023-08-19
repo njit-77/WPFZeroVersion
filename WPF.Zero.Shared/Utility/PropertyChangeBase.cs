@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace WPF.Zero.Common
+namespace WPF.Zero.Shared.Utility
 {
     [Serializable]
     public class PropertyChangeBase : INotifyPropertyChanged
@@ -30,7 +30,7 @@ namespace WPF.Zero.Common
         }
     }
 
-    static class PropertyChangedBaseEx
+    public static class PropertyChangedBaseEx
     {
         public static void OnPropertyChanged<T, TProperty>(this T PropertyChangeBase, Expression<Func<T, TProperty>> propertyname) where T : PropertyChangeBase
         {

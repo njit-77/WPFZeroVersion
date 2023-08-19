@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace WPF.Zero.Common
+namespace WPF.Zero.Shared.Utility
 {
-    public class RelayCommand<T> : ICommand
+    internal class RelayCommand<T> : ICommand
     {
 
         #region 构造函数
