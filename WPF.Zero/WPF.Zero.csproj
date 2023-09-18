@@ -89,7 +89,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Tools\Logger.cs" />
+    <Compile Include="Tools\LogHelper.cs" />
     <Compile Include="ViewModels\VersionViewModel.cs" />
     <Compile Include="Views\VersionView.xaml.cs">
       <DependentUpon>VersionView.xaml</DependentUpon>

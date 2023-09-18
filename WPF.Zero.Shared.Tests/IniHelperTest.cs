@@ -1,6 +1,5 @@
-﻿using Xunit;
-using System;
-using WPF.Zero.Shared.Utility;
+﻿using WPF.Zero.Shared.Utility;
+using Xunit;
 
 namespace WPF.Zero.Shared.Tests
 {
