@@ -1,7 +1,7 @@
 ﻿using WPF.Zero.Shared.Utility;
 using Xunit;
 
-namespace WPF.Zero.Shared.Tests
+namespace WPF.Zero.Shared.Tests.Utility
 {
     public class IniHelperTest
     {

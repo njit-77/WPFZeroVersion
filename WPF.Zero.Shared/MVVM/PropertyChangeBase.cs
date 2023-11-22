@@ -2,15 +2,13 @@
 using System.ComponentModel;
 using System.IO;
 using System.Linq.Expressions;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
-namespace WPF.Zero.Shared.Utility
+namespace WPF.Zero.Shared.MVVM
 {
-    [Serializable]
     public class PropertyChangeBase : INotifyPropertyChanged
     {
-        [field: NonSerialized()]
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyname)

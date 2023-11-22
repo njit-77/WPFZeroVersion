@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF.Zero.Views"
+        xmlns:localUserControl="clr-namespace:WPF.Zero.UserControls"
         xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         mc:Ignorable="d"
         Title="WPF.Zero" Height="600" Width="800" ResizeMode="NoResize">
@@ -16,9 +17,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Menu>
+        <Menu Background="{x:Null}">
             <MenuItem Header="文件">
                 <MenuItem Header="退出" InputGestureText="Alt+F4" Command="{Binding ExitCommand}">
                     <MenuItem.Icon>
@@ -26,18 +28,26 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="帮助">
-                <Separator/>
-                <MenuItem Header="关于" x:Name="About">
-                    <MenuItem.Icon>
-                        <Image Source="/Resources/Image/About.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
+            <MenuItem Header="插件" ItemsSource="{Binding MenuItems}">
+                <MenuItem.ItemContainerStyle>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="IsCheckable" Value="True"/>
+                        <Setter Property="IsChecked" Value="{Binding Checked}"/>
+                        <Setter Property="Header" Value="{Binding Header}"/>
+                        <Setter Property="Command" Value="{Binding Command}"/>
+                        <Setter Property="CommandParameter" Value="{Binding CommandParameter}"/>
+                    </Style>
+                </MenuItem.ItemContainerStyle>
             </MenuItem>
         </Menu>
-
-        <StatusBar Grid.Row="2" Background="LightGreen">
-            <Label/>
-        </StatusBar>
+        <ContentControl x:Name="ActiveItem" Grid.Row="1"/>
+        <GridSplitter Grid.Row="2"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Stretch"
+                      Height="2"
+                      Background="LightGreen"/>
+        <localUserControl:BindableRichTextBox
+            Paragraph="{Binding LogParagraph}"
+            Grid.Row="3"/>
     </Grid>
 </Window>

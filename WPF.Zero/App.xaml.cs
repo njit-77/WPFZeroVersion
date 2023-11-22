@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using WPF.Zero.Tools;
 
 namespace WPF.Zero
 {
@@ -24,11 +23,6 @@ namespace WPF.Zero
 
         public App()
         {
-#if LOG_NEWLIFE
-            NewLife.Log.XTrace.Log.Enable = true;
-#else
-            NewLife.Log.XTrace.Log.Enable = false;
-#endif
             Startup += (obj, e) =>
             {
                 mutex = new System.Threading.Mutex(true, $"{System.Reflection.Assembly.GetEntryAssembly().GetName().Name} - {GUID}", out bool ret);
@@ -46,7 +40,7 @@ namespace WPF.Zero
                     /// 设置UI线程发生异常时处理函数
                     System.Windows.Application.Current.DispatcherUnhandledException += (sender, exception) =>
                     {
-                        LogHelper.Error("[UI线程]异常：{0}.", exception.Exception);
+                        ViewModels.MainViewModel.Instance.logger.Error("[UI线程]异常：{0}.", exception.Exception);
 
                         System.Windows.MessageBox.Show(exception.Exception.ToString(),
                             "Error",
@@ -59,7 +53,7 @@ namespace WPF.Zero
                     /// 设置非UI线程发生异常时处理函数
                     AppDomain.CurrentDomain.UnhandledException += (sender, exception) =>
                     {
-                        LogHelper.Fatal("[非UI线程]异常：{0}.", exception);
+                        ViewModels.MainViewModel.Instance.logger.Fatal("[非UI线程]异常：{0}.", exception);
 
                         System.Windows.MessageBox.Show("软件出现不可恢复错误，即将关闭。",
                             "Error",
@@ -72,7 +66,7 @@ namespace WPF.Zero
                     /// 设置托管代码异步线程发生异常时处理函数
                     TaskScheduler.UnobservedTaskException += (sender, exception) =>
                     {
-                        LogHelper.Fatal($"Fatal - [Task]异常 GetMessage = {Utility.GetMessage(exception.Exception)}.");
+                        ViewModels.MainViewModel.Instance.logger.Fatal($"Fatal - [Task]异常 GetMessage = {Utility.GetMessage(exception.Exception)}.");
                     };
 
                     /// 设置非托管代码发生异常时处理函数
@@ -84,7 +78,7 @@ namespace WPF.Zero
 
         private int ExceptionFilter(ref long a)
         {
-            LogHelper.Fatal("[非托管代码]异常：{0}.", Environment.StackTrace);
+            ViewModels.MainViewModel.Instance.logger.Fatal("[非托管代码]异常：{0}.", Environment.StackTrace);
 
             return 1;
         }

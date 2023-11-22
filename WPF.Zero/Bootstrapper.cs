@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -12,7 +14,6 @@ namespace WPF.Zero
 {
     public class Bootstrapper : BootstrapperBase
     {
-
         /// <summary>IOC 容器</summary>
         private CompositionContainer container;
 
@@ -32,11 +33,15 @@ namespace WPF.Zero
         {
             /// 若有其余模块可在此处添加
             /// 返回目前正在执行程序集，当View在目前正在执行的程序集中时，可以这样写。
-            return new List<Assembly>()
-            {
-                Assembly.GetExecutingAssembly(),
-                /// Assembly.LoadFrom("Core.dll"),
-            };
+
+            var lst = new List<Assembly>();
+            lst.AddRange(base.SelectAssemblies());
+            lst.AddRange(
+                Directory.GetFiles(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Plugins")
+                .Where(file => file.EndsWith("dll", true, CultureInfo.CurrentCulture))
+                .Select(Assembly.LoadFrom));
+
+            return lst;
         }
 
         /// <summary>用MEF组合部件</summary>
@@ -62,12 +67,12 @@ namespace WPF.Zero
         protected override object GetInstance(Type service, string key)
         {
             string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(service) : key;
-
             var exports = container.GetExportedValues<object>(contract);
 
-            if (exports.Any())
+            var exportList = exports.ToList();/// 避免直接用exports时 调用2次IEnumerable操作
+            if (exportList.Any())
             {
-                return exports.First();
+                return exportList.First();
             }
 
             throw new Exception(string.Format("找不到{0}实例.", contract));
@@ -84,8 +89,5 @@ namespace WPF.Zero
         {
             container.SatisfyImportsOnce(instance);
         }
-
-
-
     }
 }

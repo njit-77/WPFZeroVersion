@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Threading;
 using System.Collections.Concurrent;
+using System.Threading;
 
-namespace WPF.Zero.Shared.Utility
+namespace WPF.Zero.Shared.MVVM
 {
     /// <summary>简单生产者-消费者模式</summary>
     internal class ProducerConsumer<T> where T : new()

@@ -9,9 +9,15 @@
     <Import_RootNamespace>WPF.Zero.SharedProject</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Log\ILog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Log\Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Log\LogLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility\IniHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utility\ProducerConsumer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utility\PropertyChangeBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utility\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MVVM\ProducerConsumer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MVVM\PropertyChangeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MVVM\RelayCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)MVVM\" />
   </ItemGroup>
 </Project>

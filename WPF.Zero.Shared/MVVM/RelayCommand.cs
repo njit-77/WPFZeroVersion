@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace WPF.Zero.Shared.Utility
+namespace WPF.Zero.Shared.MVVM
 {
     internal class RelayCommand<T> : ICommand
     {
